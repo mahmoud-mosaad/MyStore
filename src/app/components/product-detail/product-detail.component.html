@@ -1,0 +1,14 @@
+<div *ngIf="product" class="detail-container">
+    <img class="img" src="{{ product.url }}">
+    <div class="detail-item">
+        <div>
+            <h2><b>{{ product.name }}</b></h2>
+            <div>$ {{ product.price }}</div>
+            <p>{{ product.description }}</p>
+        </div>
+        <app-add-product-form [product]="product"></app-add-product-form>
+        <div>
+            <a class="back-link" routerLink="/">Back to Products Page</a>
+        </div>
+    </div>
+</div>

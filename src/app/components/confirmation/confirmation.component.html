@@ -1,0 +1,14 @@
+<div class="confirmation-container">
+    <div class="confirmation-items ">
+        <div class="confirmation-header confirmation-item">
+            SUCCESSFUL CHECKOUT
+        </div>
+        <div class="confirmation-item">Thank you, <b>{{ checkoutDetails.fullName }}</b></div>
+        <div class="confirmation-item">Your Invoice Total Price: <b>${{ checkoutDetails.totalPrice }}</b></div>
+        <div class="confirmation-item">
+            <a routerLink="/">
+                Return to product list
+            </a>
+        </div>
+    </div>
+</div>

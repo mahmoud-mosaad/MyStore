@@ -1,0 +1,8 @@
+<form (ngSubmit)="onSubmit(product, $event)">
+    <select [(ngModel)]="selectedQuantity" name="selectedQuantity" (ngModelChange)="quantityChange(product.id, $event)" class="select-input">
+        <option *ngFor="let quantity of productAvailableQuantity" [value]="quantity" [selected]="quantity == 1">
+            {{ quantity }}
+        </option>
+    </select>
+    <input type="submit" value="Add to Cart" class="btn btn-primary">
+</form>

@@ -1,0 +1,38 @@
+<div *ngIf="cartProducts.length" class="cart-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="cart-item-details">
+          <div *ngFor="let cartProduct of cartProducts" class="cart-item">
+            <img class="cart-product-img" src='{{ cartProduct.url }}'>
+            <div class="cart-panel">
+              <div>{{ cartProduct.name}}</div>
+              <div>$ {{ cartProduct.price}}</div>
+              <select [(ngModel)]="cartProduct.quantity" (ngModelChange)="quantityChange(cartProduct.id, $event)" style="width: 100px;">
+                <option *ngFor="let quantity of productAvailableQuantity" [value]="quantity" [selected]="cartProduct.quantity == quantity">
+                  {{ quantity }}
+                </option>
+              </select>  
+              <button (click)="removeProductFromCart(cartProduct.id)"  class="btn btn-primary">Remove</button>
+            </div>
+          </div>
+        </div>    
+      </div>
+      <div class="col-4">
+        <div class="form-margin">
+          <app-checkout (checkoutSuccess)="checkoutSuccess()" [totalPrice]="totalPrice"></app-checkout>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!cartProducts.length" class="container">
+  <div class="row">
+      <div class="col">
+          <h1 class="text-center p-5">Your Cart is Empty, Add Some Products First</h1>
+          <div class="row">
+              <img src="../../../assets/img/empty-cart.jpg" class="img-fluid" alt="Empty Cart">  
+          </div>
+      </div>
+  </div>
+</div>
